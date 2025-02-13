@@ -1,0 +1,125 @@
+/* Reset / Basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #fff; /* Or #f9f1f1, if you prefer */
+  }
+  
+  /* Main container: row with left side (text+hearts) and right side (envelope) */
+  .container {
+    display: flex;
+    align-items: center;      /* Vertically center items */
+    justify-content: center;  /* Center them horizontally in the viewport */
+    height: 100vh;            /* Full viewport height */
+    padding: 0 20px;          /* Optional horizontal padding */
+  }
+  
+  /* Left side: text on top, Kuromi+hearts below */
+  .left-side {
+    display: flex;
+    flex-direction: column;   /* Stack text over the image */
+    align-items: center;      /* Center them horizontally */
+    margin-right: 50px;       /* Space between hearts and the envelope */
+  }
+  
+  /* The text above Kuromi+hearts */
+  .text {
+    font-family: "Lobster", serif;
+    font-weight: 800;
+    font-size: 40px;
+    color: #a90e0e;
+    margin-bottom: 500px;      /* Space between text and image */
+    margin-left: 100px;
+  }
+  
+  /* Kuromi+hearts image (one combined file) */
+  
+  /* Envelope on the right side */
+  .letter {
+    width: 600px;
+    height: auto;
+    margin-top: 30px;
+    display: block;
+    max-width: 100%;
+    cursor: pointer;
+    transition: width 0.3s ease-in-out; /* Smooth transition for width changes */
+  }
+  
+  .letter:hover {
+    width: 620px;
+    /* height remains auto so it scales naturally */
+  }
+  
+  /* Bouncing animation for the hearts (Kuromi+hearts) remains unchanged */
+  .hearts {
+    width: 400px;
+    height: auto;
+    margin-top: 40px;
+    margin-left: -420px;
+    animation: bounce 2s infinite;
+  }
+  
+  /* Keyframes for bounce animation */
+  @keyframes bounce {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+  }
+  
+  /* The "opened" letter image */
+  .openletter {
+    width: 1000px; /* Adjust as you like */
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    max-width: 100%;
+  }
+
+  .vinyl {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    margin-top: 600px;
+    margin-left: 1000px;
+    transform-origin: center center;
+  }
+  
+  /* This class triggers the spinning animation */
+  .vinyl.spinning {
+    animation: spin 2s linear infinite;
+  }
+  
+  /* Define the spin keyframes */
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .play-button {
+    position: absolute;
+    margin-top: 400px;
+    margin-left: 1000px;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: "Lobster", serif;
+    background-color: #a90e0e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.play-button:hover {
+  /* Scale up and change background color on hover */
+  transform: scale(1.1);
+  background-color: #c12e2e;
+}
